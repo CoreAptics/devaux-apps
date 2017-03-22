@@ -1,10 +1,5 @@
 {% extends 'base.html.twig' %}
+{% block title %}Accueil {{ parent() }}{% endblock %}
 {% block body %}
-    {% if is_granted('IS_AUTHENTICATED_FULLY') %}
-        <a href="{{ path('front_user_logout') }}">Logout</a><br>
-    {% else %}
-        <a href="{{ path('front_user_login') }}">Login</a>
-        <a href="{{ path('front_user_register') }}">Inscription</a><br>
-    {% endif %}
-    Hello World !
+    Deavux Apps
 {% endblock %}
