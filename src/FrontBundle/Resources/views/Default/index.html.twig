@@ -1,5 +1,25 @@
 {% extends 'base.html.twig' %}
 {% block title %}Accueil {{ parent() }}{% endblock %}
 {% block body %}
-    Deavux Apps
+    <section class="index">
+        <div class="inner">
+            <div class="logo">
+                <img src="{{ asset('assets/img/logo-devaux.jpg') }}" alt="Devaux">
+            </div>
+            <div class="col-3">
+                <div class="col">
+                    <img src="{{ asset('assets/img/picto-form.jpg') }}" alt="Devenir Client Privilège Devaux">
+                    <p>Devenir client<br/><span>Privilège</span></p>
+                </div>
+                <div class="col">
+                    <img src="{{ asset('assets/img/picto-map.jpg') }}" alt="Où nous trouver ?">
+                    <p>Où nous <span>trouver</span></p>
+                </div>
+                <div class="col">
+                    <img src="{{ asset('assets/img/picto-like.jpg') }}" alt="Donner votre avis">
+                    <p>Donnez votre <span>avis</span></p>
+                </div>
+            </div>
+        </div>
+    </section>
 {% endblock %}
