@@ -268,40 +268,6 @@ class Client
     }
 
     /**
-     * Add type
-     *
-     * @param \CoreBundle\Entity\ClientType $type
-     *
-     * @return Client
-     */
-    public function addType(\CoreBundle\Entity\ClientType $type)
-    {
-        $this->types[] = $type;
-
-        return $this;
-    }
-
-    /**
-     * Remove type
-     *
-     * @param \CoreBundle\Entity\ClientType $type
-     */
-    public function removeType(\CoreBundle\Entity\ClientType $type)
-    {
-        $this->types->removeElement($type);
-    }
-
-    /**
-     * Get types
-     *
-     * @return \Doctrine\Common\Collections\Collection
-     */
-    public function getTypes()
-    {
-        return $this->types;
-    }
-
-    /**
      * Set connaissance
      *
      * @param string $connaissance
