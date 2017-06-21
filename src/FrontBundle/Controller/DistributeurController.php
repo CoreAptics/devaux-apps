@@ -37,11 +37,10 @@ class DistributeurController extends Controller
 
         $references = $em->getRepository('CoreBundle:Reference')->findByCountry($countryId);
         $json = array();
-        if($departements != null){
             $json['departements'] = $this->render('@Front/Default/departements_form.html.twig', array(
                 'listDepartement'=>$departements
             ))->getContent();
-        }
+
 
         $json['villes'] = $this->render('@Front/Default/villes_form.html.twig', array(
             'listVille'=>$villes
