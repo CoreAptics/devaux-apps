@@ -1,0 +1,4 @@
+<option value="" selected disabled>Sélectionner une ville</option>
+{% for ville in listVille %}
+    <option value="{{ ville.id }}">{{ ville.name }}</option>
+{% endfor %}

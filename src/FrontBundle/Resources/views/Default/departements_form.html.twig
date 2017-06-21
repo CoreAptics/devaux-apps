@@ -1,0 +1,4 @@
+<option value="" selected disabled>Sélectionner un département</option>
+{% for departement in listDepartement %}
+    <option value="{{ departement.id }}">{{ departement.name }}</option>
+{% endfor %}

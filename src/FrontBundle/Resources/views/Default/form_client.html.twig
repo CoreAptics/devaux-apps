@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="{{ asset('assets/stylesheets/screen.css') }}">
+    <title>Devaux</title>
+</head>
+<body>
+    <section class="form_client">
+        <div class="inner">
+           <div class="intro">
+              <div class="arborescence">
+                  <p class="index"><a href="{{ path('front_homepage') }}" style="color: black">Accueil</a></p>
+                  <img src="{{ asset('assets/img/arrow-right.png') }}" alt="arrow right">
+                  <p class="current-page">Devenir client privilège</p>
+              </div>
+               <img src="{{ asset('assets/img/tiny-logo.png') }}" alt="Devaux">
+<!--               <img src="img/english.png" alt="English version">-->
+           </div>
+            {{ form_start(form) }}
+            <div class="col-2">
+               <div class="form col">
+                       {{ form_widget(form.nom) }}
+                       {{ form_widget(form.prenom) }}
+                       {{ form_widget(form.email) }}
+                       {{ form_widget(form.adresse) }}
+                       {{ form_widget(form.ville) }}
+                       {{ form_widget(form.postal) }}
+               </div>
+               <div class="news col">
+                  <div class="all">
+                   <p class="title">J’ai connu Champagne Devaux grâce :</p>
+                   <div class="form-radio">
+                        <div class="bullet">
+                            <input type="radio" name="civi" value="Bouche" required/> <span>au bouche-à-oreille</span>
+                        </div>
+                        <div class="bullet">
+                            <input type="radio" name="civi" value="Office" /> <span>à un office de tourisme</span>
+                        </div>
+                        <div class="bullet">
+                            <input type="radio" name="civi" value="Internet" /> <span>à internet</span>
+                        </div>
+                        <div class="bullet">
+                            <div class="other">
+                                <input type="radio" name="civi" value="Autre" /> <span>autre</span> <input type="text" name="autre_text" placeholder="Indiquez votre réponse ici" class="answer">
+                            </div>
+                        </div>
+                   </div>
+                   <div class="form-checkbox">
+                       {{ form_widget(form.newsletter) }}{{ form_label(form.newsletter) }}
+                   </div>
+                       {{ form_row(form.Valider) }}
+                   </div>
+               </div>
+            </div>
+            {{ form_rest(form) }}
+        </div>
+    </section>
+</body>
+</html>

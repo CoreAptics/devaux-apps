@@ -1,0 +1,490 @@
+/* Welcome to Compass.
+ * In this file you should write your main styles. (or centralize your imports)
+ * Import this file using the following HTML or equivalent:
+ * <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css" /> */
+
+@import "compass/reset";
+$gold: #c09740;
+//@include font-face(OpenSans, fonts/OpenSans);
+
+/* GLOBAL */
+
+section {
+    max-width: 1280px;
+    height: 752px;
+}
+
+img {
+    display: block;
+    margin: 0 auto;
+}
+
+.inner {
+    width: 100%;
+    margin: 0 auto;
+}
+
+p {
+    font-size: 24px;
+    color: $gold;
+    font-family: 'OpenSans';
+    text-align: center;
+    span {
+        font-weight: bold;
+    }
+}
+
+* {
+    font-family: 'OpenSans' !important;
+}
+
+a {
+    text-decoration: none;
+}
+
+
+/* COLONNES */
+
+.col {
+    float: left;
+}
+
+.col-1 {
+    .col {
+        width: 100%;
+    }
+}
+
+.col-2 {
+    .col {
+        width: 50%;
+    }
+}
+
+.col-3 {
+    .col {
+        width: 33%;
+    }
+}
+
+.col-4 {
+    .col {
+        width: 25%;
+    }
+}
+
+
+/* INDEX */
+
+section.index {
+    background-image: url(../img/d.png);
+    background-repeat: no-repeat;
+    background-position: 169% 50%;
+    .inner {
+        .logo {
+            img {
+                &:last-child {
+                    position: absolute;
+                    right: 54px;
+                    top: 24px;
+                }
+            }
+        }
+        .col-4 {
+            margin-top: 100px;
+            position: relative;
+            p {
+                &:first-child {
+                    right: 215px;
+                    top: -20px;
+                    position: absolute;
+                }
+            }
+            .col {
+                &:last-child {
+                    img {
+                        margin-top: 50px;
+                        margin-bottom: 94px;
+                    }
+                }
+                p {
+                    margin-top: 67px;
+                }
+            }
+        }
+    }
+}
+
+
+/* FORMULAIRE CLIENT */
+
+section.form_client {
+    .inner {
+        padding: 2%;
+        box-sizing: border-box;
+        position: relative;
+        .intro {
+            .arborescence {
+                display: inline-block;
+                position: absolute;
+                margin-top: 24px;
+                p {
+                    font-size: 20px;
+                    display: inline-block;
+                    &.index {
+                        color: black;
+                    }
+                    &.current-page {
+                        color: #c09740;
+                    }
+                }
+                img {
+                    display: inline-block;
+                }
+            }
+            img {
+                margin-right: 0;
+            }
+        }
+        .form,
+        .news {
+            margin-top: 60px;
+        }
+        .form {
+            input {
+                width: 100%;
+                border: solid 1px #333333;
+                height: 32px;
+                margin-bottom: 36px;
+                padding-left: 14px;
+                &.adresse {
+                    height: 64px;
+                }
+                &:focus {
+                    border: solid 1px #c09740;
+                }
+                &::placeholder {
+                    color: #777777;
+                    font-size: 18px;
+                }
+            }
+        }
+        .news {
+            .form-radio {
+                margin-top: 24px;
+            }
+            .all {
+                width: 485px;
+                float: right;
+            }
+            p {
+                &.title {
+                    color: black;
+                    text-align: left;
+                    font-size: 20px;
+                }
+            }
+            .bullet {
+                margin-top: 16px;
+                &:last-child {
+                    margin-top: 0;
+                }
+                input {
+                    height: auto;
+                    transform: scale(1.5);
+                    //                        &:checked:after {
+                    //                            width: 12px;
+                    //                            height: 12px;
+                    //                            border-radius: 15px;
+                    //                            top: -2px;
+                    //                            left: -1px;
+                    //                            position: relative;
+                    //                            background-color: #c49d4b;
+                    //                            content: '';
+                    //                            display: inline-block;
+                    //                            visibility: visible;
+                    //                            border: 2px solid white;
+                    //                        }
+                }
+                span {
+                    font-size: 20px;
+                }
+                .other {
+                    input {
+                        padding-left: 14px;
+                        height: 32px;
+                        &:first-child {
+                            position: relative;
+                            top: 10px;
+                            //                            &:checked:after {
+                            //                            top: 8px;
+                            //                        }
+                        }
+                        &:last-child {
+                            transform: scale(1);
+                        }
+                        &.answer {
+                            width: 50%;
+                            border: solid 1px #333333;
+                            &:focus {
+                                border: solid 1px #c09740;
+                            }
+                            &::placeholder {
+                                color: #777777;
+                                font-size: 18px;
+                            }
+                        }
+                    }
+                }
+            }
+            .form-checkbox {
+                margin-top: 64px;
+                input {
+                    &[type=checkbox] {
+                        transform: scale(1.5);
+                    }
+                }
+            }
+            button {
+                height: 50px;
+                width: 130px;
+                font-size: 24px;
+                background-color: black;
+                color: white;
+                margin-top: 105px;
+                margin-left: 265px;
+            }
+        }
+    }
+}
+
+
+/* DISTRIBUTEUR */
+
+section.distributeur {
+    background-image: url(../img/d.png);
+    background-repeat: no-repeat;
+    background-position: 169% 50%;
+    .inner {
+        padding: 2%;
+        box-sizing: border-box;
+        position: relative;
+        .intro {
+            .arborescence {
+                display: inline-block;
+                margin-top: 24px;
+                p {
+                    font-size: 20px;
+                    display: inline-block;
+                    &.index {
+                        color: black;
+                    }
+                    &.current-page {
+                        color: #c09740;
+                    }
+                }
+                img {
+                    display: inline-block;
+                }
+            }
+        }
+        .form {
+            &.col-2 {
+                .col {
+                    &:first-child {
+                        padding: 50px 50px 0;
+                        box-sizing: border-box;
+                        select {
+                            width: 70%;
+                            border: solid 1px #333333;
+                            height: 32px;
+                            margin-bottom: 100px;
+                            padding-left: 14px;
+                            background-color: #fff;
+                            border-radius: 0;
+                        }
+                        label {
+                            display: block;
+                            margin-bottom: 10px;
+                            &.radio {
+                                display: inline-block;
+                                vertical-align: middle;
+                            }
+                        }
+                        input[type=text] {
+                            width: 70%;
+                            border: solid 1px #333333;
+                            height: 32px;
+                            margin-bottom: 36px;
+                            &::placeholder {
+                                padding-left: 14px;
+                            }
+                        }
+                        .main {
+                            .second {
+                                float: left;
+                                width: 45%;
+                                margin-right: 5%;
+                                &:last-child {
+                                    margin-right: 0;
+                                }
+                                a {
+                                    padding: 8px 20px;
+                                    display: block;
+                                    border: 1px solid #333333;
+                                    color: #333333;
+                                    text-align: center;
+                                    min-height: 32px;
+                                    margin-bottom: 10px;
+                                }
+                            }
+                        }
+                    }
+                    &:last-child {
+                        padding: 50px 50px 0;
+                        box-sizing: border-box;
+                        .wrap {
+                            h4 {
+                                color: #333333;
+                                text-align: left;
+                                font-family: 'OpenSans';
+                            }
+                            .resultat {
+                                margin-top: 10px;
+                                color: #333333;
+                                .clickable {
+                                    width: 80%;
+                                    border: 1px solid #333333;
+                                    padding: 8px 20px;
+                                    p {
+                                        font-weight: bold;
+                                        color: #333333;
+                                        font-size: 14px;
+                                        text-align: left;
+                                        span {
+                                            color: #333333;
+                                            font-size: 14px;
+                                            font-family: 'OpenSans';
+                                            font-weight: normal;
+                                        }
+                                    }
+                                }
+                                .hidden {
+                                    display: none;
+                                    color: #333333;
+                                    padding: 20px;
+                                    border: 1px solid #333333;
+                                    width: 80%;
+                                    border-top: none;
+                                    .left {
+                                        display: inline-block;
+                                        vertical-align: top;
+                                        width: 45%;
+                                        p {
+                                            color: #333333;
+                                            font-size: 14px;
+                                            text-align: left;
+                                        }
+                                    }
+                                    .right {
+                                        display: inline-block;
+                                        vertical-align: top;
+                                        width: 45%;
+                                        p {
+                                            color: #333333;
+                                            font-size: 14px;
+                                            text-align: left;
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+
+/* SATISFACTION */
+
+section.satisfaction {
+    background-image: url(../img/d.png);
+    background-repeat: no-repeat;
+    background-position: 169% 50%;
+    .inner {
+        padding: 2%;
+        box-sizing: border-box;
+        position: relative;
+        .intro {
+            .arborescence {
+                display: inline-block;
+                margin-top: 24px;
+                p {
+                    font-size: 20px;
+                    display: inline-block;
+                    &.index {
+                        color: black;
+                    }
+                    &.current-page {
+                        color: #c09740;
+                    }
+                }
+                img {
+                    display: inline-block;
+                }
+            }
+        }
+        .container {
+            padding: 50px 50px 0;
+            p {
+                color: #333333;
+                text-align: left;
+                font-size: 16px;
+                &.first {
+                    margin-bottom: 20px;
+                }
+                &.last {
+                    margin-top: 20px;
+                }
+                &.question {
+                    margin-top: 15px;
+                    font-weight: bold;
+                    margin-bottom: 10px;
+                }
+            }
+            .formulaire {
+                height: 530px;
+                overflow: scroll;
+                .item {
+                    input[type=text] {
+                        width: 40%;
+                        border: solid 1px #333333;
+                        height: 20px;
+                        margin-left: 20px;
+                        &::placeholder {
+                            padding-left: 14px;
+                        }
+                    }
+                    input[type=radio] {
+                        margin-top: 15px;
+                        height: 20px;
+                    }
+                    textarea {
+                        width: 40%;
+                        border: solid 1px #333333;
+                    }
+                }
+                input[type=submit] {
+                    height: 50px;
+                    width: 130px;
+                    font-size: 24px;
+                    background-color: black;
+                    color: white;
+                    margin-top: 20px;
+                }
+            }
+        }
+    }
+}

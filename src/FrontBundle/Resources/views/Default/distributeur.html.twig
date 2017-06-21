@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="{{ asset('assets/stylesheets/screen.css') }}">
+    <script src="{{ asset('assets/js/jquery-3.2.1.min.js') }}"></script>
+    <title>Devaux</title>
+</head>
+
+<body>
+<section class="distributeur">
+    <div class="inner">
+        <div class="intro">
+            <div class="arborescence">
+                <p class="index"><a href="{{ path('front_homepage') }}" style="color: black;">Accueil</a></p>
+                <img src="{{ asset('assets/img/arrow-right.png') }}" alt="arrow right">
+                <p class="current-page">Où nous trouver</p>
+            </div>
+        </div>
+        <div class="form col-2">
+            <div class="col">
+                <form action="#">
+                    <label for="country">Sélectionner un pays</label>
+                    <select name="country" id="country" data-action="{{ path('front_country_ajax') }}">
+                        <option value="" style="color: lightgray;">Selectionner un pays</option>
+                        {% for country in listCountry %}
+                            <option value="{{ country.id }}">{{ country.name }}</option>
+                        {% endfor %}
+                    </select>
+                    <div id="departement_div">
+                        <label for="departement">Selectionner un département</label>
+                        <select name="departement" id="departement" data-action="{{ path('front_departement_ajax') }}">
+                            <option value="" selected disabled>Sélectionner un département</option>
+                        </select>
+                    </div>
+                    <div id="ville_div">
+                        <label for="ville">Sélectionner une ville</label>
+                        <select name="ville" id="ville" data-action="{{ path('front_ville_ajax') }}">
+                            <option value="" selected disabled>Sélectionner une ville</option>
+                        </select>
+                    </div>
+                    <div id="category_div">
+                        <label for="">Sélectionner un catégorie</label>
+                        <div class="main">
+                            <div class="second">
+                                {% for category in listCategory %}
+                                    {% if loop.index is divisible by(2) %}
+                                        <a class="category" href="#" data-section="">{{ category.name }}</a>
+                                    {% endif %}
+                                {% endfor %}
+                            </div>
+                            <div class="second">
+                                {% for category in listCategory %}
+                                    {% if loop.index is not divisible by(2) %}
+                                        <a class="category" href="#" data-section="">{{ category.name }}</a>
+                                    {% endif %}
+                                {% endfor %}
+                            </div>
+                        </div>
+                    </div>
+
+                </form>
+            </div>
+            <div class="col">
+                <div class="wrap" id="reference">
+                    <h4>Nos adresses :</h4>
+                    {% for reference in listReference %}
+                        <div class="resultat">
+                            <div class="clickable" data-container="{{ loop.index }}">
+                                <p>{{ reference.name }} - <span>{{ reference.category.name }}</span></p>
+                            </div>
+                            <div class="hidden" data-container="{{ loop.index }}">
+                                <div class="left">
+                                    <p>Adresse :</p>
+                                    <p>{{ reference.address }}
+                                        <br /> {{ reference.zipcode }} {{ reference.ville.name }}
+                                        <br /> {{ reference.ville.country.name }}
+                                    </p>
+                                </div>
+                                <div class="right">
+                                    <p>Site web :</p>
+                                    <p>{{ reference.webSite }}</p>
+                                </div>
+                            </div>
+                        </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+</body>
+<script>
+    $(document).ready(function () {
+        $('div.clickable').click(function(){
+            var ID = $(this).attr('data-container');
+            $('div.hidden[data-container='+ID+']').slideToggle('fast');
+        });
+
+        $('#country').change(function () {
+            var action = $(this).attr('data-action');
+
+            $.ajax({
+                url: action+'?country='+$(this).val(),
+                success: function (result) {
+                    var obj = JSON.parse(result);
+                    console.log(obj['reference']);
+                    $('#departement').html(obj['departements']);
+                    $('#ville').html(obj['villes']);
+                    $('#category_div').html(obj['category']);
+                    $('#reference').html(obj['reference']);
+                }
+            })
+        });
+
+        $('#departement').change(function () {
+            var action = $(this).attr('data-action');
+
+            $.ajax({
+                url: action+'?departement='+$(this).val(),
+                success: function (result) {
+                    var obj = JSON.parse(result);
+                    $('#ville').html(obj['villes']);
+                    $('#category_div').html(obj['category']);
+                    $('#reference').html(obj['reference']);
+                }
+            })
+        });
+
+        $('#ville').change(function () {
+            var action = $(this).attr('data-action');
+
+            $.ajax({
+                url: action+'?ville='+$(this).val(),
+                success: function (result) {
+                    var obj = JSON.parse(result);
+                    $('#category_div').html(obj['category']);
+                    $('#reference').html(obj['reference']);
+                }
+            })
+        });
+
+    });
+</script>
+
+</html>

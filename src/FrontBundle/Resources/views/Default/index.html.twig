@@ -1,25 +1,30 @@
 {% extends 'base.html.twig' %}
-{% block title %}Accueil {{ parent() }}{% endblock %}
 {% block body %}
-    <section class="index">
-        <div class="inner">
-            <div class="logo">
-                <img src="{{ asset('assets/img/logo-devaux.jpg') }}" alt="Devaux">
+<section class="index">
+    <div class="inner">
+        <div class="logo">
+            <img src="{{ asset('assets/img/logo-devaux.png') }}" alt="Devaux">
+            <img src="{{ asset('assets/img/english.png') }}" alt="English version">
+        </div>
+        <div class="col-4">
+            <p>Donnez votre <span>avis</span></p>
+            <div class="col">
+                <a href="{{ path('front_client') }}"><img src="{{ asset('assets/img/picto-form.png') }}" alt="Devenir Client Privilège Devaux">
+                    <p>Devenir client<br/><span>Privilège</span></p></a>
             </div>
-            <div class="col-3">
-                <div class="col">
-                    <img src="{{ asset('assets/img/picto-form.jpg') }}" alt="Devenir Client Privilège Devaux">
-                    <p>Devenir client<br/><span>Privilège</span></p>
-                </div>
-                <div class="col">
-                    <img src="{{ asset('assets/img/picto-map.jpg') }}" alt="Où nous trouver ?">
-                    <p>Où nous <span>trouver</span></p>
-                </div>
-                <div class="col">
-                    <img src="{{ asset('assets/img/picto-like.jpg') }}" alt="Donner votre avis">
-                    <p>Donnez votre <span>avis</span></p>
-                </div>
+            <div class="col">
+                <a href="{{ path('front_distributeur') }}"><img src="{{ asset('assets/img/picto-map.png') }}" alt="Où nous trouver ?">
+                    <p>Où nous <span>trouver</span></p></a>
+            </div>
+            <div class="col">
+                <a href="{{ path('front_satisfaction') }}"><img src="{{ asset('assets/img/picto-like.png') }}" alt="Donner votre avis">
+                    <p>Donnez votre <span>avis</span></p></a>
+            </div>
+            <div class="col">
+                <a href="#"><img src="{{ asset('assets/img/picto-like.png') }}" alt="Donner votre avis">
+                    <p>Tripadvisor</p></a>
             </div>
         </div>
-    </section>
+    </div>
+</section>
 {% endblock %}

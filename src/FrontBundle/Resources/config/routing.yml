@@ -2,28 +2,26 @@ front_homepage:
     path:     /
     defaults: { _controller: FrontBundle:Default:index }
 
-front_user_register:
-    path:     /register
-    defaults: { _controller: FrontBundle:User:register }
+front_client:
+    path: /client
+    defaults: { _controller: FrontBundle:Client:index}
 
-front_user_login:
-    path:     /login
-    defaults: { _controller: FrontBundle:User:login }
+front_satisfaction:
+    path: /satisfaction
+    defaults: { _controller: FrontBundle:Satisfaction:index }
 
-front_user_login_check:
-    path:     /login_check
+front_distributeur:
+    path: /distributeurs
+    defaults: { _controller: FrontBundle:Distributeur:index }
 
-front_user_logout:
-    path:     /logout
+front_country_ajax:
+    path: /distributeurs/ajax/pays
+    defaults: { _controller: FrontBundle:Distributeur:ajaxRefreshCountry}
 
-front_user_activate:
-    path:     /activate/{token}
-    defaults: { _controller: FrontBundle:User:activate }
+front_departement_ajax:
+    path: /distributeurs/ajax/departement
+    defaults: { _controller: FrontBundle:Distributeur:ajaxRefreshDepartement}
 
-front_user_forget_pass:
-    path:     /forget
-    defaults: { _controller: FrontBundle:User:forget }
-
-front_user_reset:
-    path:     /reset/{token}
-    defaults: { _controller: FrontBundle:User:reset }
+front_ville_ajax:
+    path: /distributeurs/ajax/ville
+    defaults: { _controller: FrontBundle:Distributeur:ajaxRefreshVille}

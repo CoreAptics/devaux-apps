@@ -1,0 +1,21 @@
+<h4>Nos adresses :</h4>
+{% for reference in listReference %}
+    <div class="resultat">
+        <div class="clickable" data-container="{{ loop.index }}">
+            <p>{{ reference.name }} - <span>{{ reference.category.name }}</span></p>
+        </div>
+        <div class="hidden" data-container="{{ loop.index }}">
+            <div class="left">
+                <p>Adresse :</p>
+                <p>{{ reference.address }}
+                    <br /> {{ reference.zipcode }} {{ reference.ville.name }}
+                    <br /> {{ reference.ville.country.name }}
+                </p>
+            </div>
+            <div class="right">
+                <p>Site web :</p>
+                <p>{{ reference.webSite }}</p>
+            </div>
+        </div>
+    </div>
+{% endfor %}

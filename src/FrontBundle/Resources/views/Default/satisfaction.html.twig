@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="{{ asset('assets/stylesheets/screen.css') }}">
+    <script src="{{ asset('assets/js/jquery-3.2.1.min.js') }}"></script>
+    <title>Devaux</title>
+</head>
+
+<body>
+<section class="satisfaction">
+    <div class="inner">
+        <div class="intro">
+            <div class="arborescence">
+                <p class="index"><a href="{{ path('front_homepage') }}" style="color: black;">Accueil</a></p>
+                <img src="{{ asset('assets/img/arrow-right.png') }}" alt="arrow right">
+                <p class="current-page">Devenir client privilège</p>
+            </div>
+        </div>
+        <div class="container">
+            <p class="first">Madame, Monsieur,
+                <br /> Nous vous remercions pour votre visite et nous vous saurions gré de remplir ce court questionnaire en vue d’améliorer encore la qualité notre service.</p>
+            <div class="formulaire">
+                <form action="{{ path('front_satisfaction') }}" method="post">
+                    {% for question in listQuestions %}
+                        <div class="item">
+                            <p class="question">{{ question.name }}</p>
+                            {% for attribute in question.attributes %}
+                                {% if question.type.type  == 'Multiple' %}
+                                    <input type="checkbox" name="{{ question.name }}">
+                                    <label for="">{{ attribute.name }}</label>
+                                    {% if attribute.optional %}
+                                        <input type="text" name="optional_{{ question.name }}" placeholder="Indiquez votre réponse ici">
+                                    {% endif %}
+                                {% elseif question.type.type == 'Texte' %}
+                                    <textarea name="{{ question.name }}" id="" cols="30" rows="5"></textarea>
+                                {% elseif question.type.type == 'Unique' %}
+                                    <input type="radio" name="{{ question.name }}">
+                                    <label for="">{{ attribute.name }}</label>
+                                    {% if attribute.optional %}
+                                        <input type="text" name="optional_{{ question.name }}" placeholder="Indiquez votre réponse ici">
+                                    {% endif %}
+                                {% endif %}
+                                {% if question.horizontal == false %}
+                                    <br>
+                                {% endif %}
+                            {% endfor %}
+                        </div>
+                    {% endfor %}
+                    {#<div class="item">#}
+                        {#<p class="question">Vous êtes :</p>#}
+                        {#<input type="radio">#}
+                        {#<label for="">Un homme</label>#}
+                        {#<input type="radio">#}
+                        {#<label for="">Une femme</label>#}
+                        {#<br />#}
+                        {#<input type="radio">#}
+                        {#<label for="">Originaire de la région Grand Est</label>#}
+                        {#<input type="radio">#}
+                        {#<label for="">Originaire d’une autre région française</label>#}
+                        {#<input type="radio">#}
+                        {#<label for="">Étranger</label>#}
+                        {#<input type="radio">#}
+                    {#</div>#}
+                    {#<div class="item">#}
+                        {#<p class="question">1. Comment avez-vous connu le Manoir Champagne Devaux ?</p>#}
+                        {#<input type="radio">#}
+                        {#<label for="">Le bouche à oreille</label>#}
+                        {#<br />#}
+                        {#<input type="radio">#}
+                        {#<label for="">La signalétique</label>#}
+                        {#<br />#}
+                        {#<input type="radio">#}
+                        {#<label for="">Notre dépliant</label>#}
+                        {#<br />#}
+                        {#<input type="radio">#}
+                        {#<label for="">Une office de tourisme, lequel ?</label>#}
+                        {#<input type="text" placeholder="Indiquez votre réponse ici">#}
+                        {#<br />#}
+                        {#<input type="radio">#}
+                        {#<label for="">o les parutions dans la presse</label>#}
+                        {#<br />#}
+                        {#<input type="radio">#}
+                        {#<label for="">Internet</label>#}
+                        {#<br />#}
+                        {#<input type="radio">#}
+                        {#<label for="">Autre</label>#}
+                        {#<input type="text" placeholder="Indiquez votre réponse ici">#}
+                        {#<br />#}
+                    {#</div>#}
+                    {#<div class="item">#}
+                        {#<p class="question">2. Comment définiriez-vous l’accès à notre domaine ?</p>#}
+                        {#<input type="radio">#}
+                        {#<label for="">Facile</label>#}
+                        {#<br />#}
+                        {#<input type="radio">#}
+                        {#<label for="">Difficile, pourquoi ?</label>#}
+                        {#<input type="text" placeholder="Indiquez votre réponse ici">#}
+                    {#</div>#}
+                    {#<div class="item">#}
+                        {#<p class="question">3. Quelle est la raison de votre visite ?</p>#}
+                        {#<input type="radio">#}
+                        {#<label for="">Une visite libre sans réservation</label>#}
+                        {#<br />#}
+                        {#<input type="radio">#}
+                        {#<label for="">Un atelier dégustation sur réservation</label>#}
+                        {#<br />#}
+                        {#<input type="radio">#}
+                        {#<label for="">Un rendez-vous professionnel</label>#}
+                        {#<br />#}
+                        {#<input type="radio">#}
+                        {#<label for="">L’un de nos évènements grand public (Pâques, Soirée Arts-sur-Seine, la Fête de la Gastronomie, les journées du Patrimoine…). Si oui, lequel ?</label>#}
+                        {#<input type="text" placeholder="Indiquez votre réponse ici">#}
+                        {#<br />#}
+                    {#</div>#}
+                    {#<div class="item">#}
+                        {#<p class="question">4. Qu’appréciez-vous le plus sur notre domaine ?</p>#}
+                        {#<input type="radio">#}
+                        {#<label for="">Le lieu, avec la visite en libre accès</label>#}
+                        {#<br />#}
+                        {#<input type="radio">#}
+                        {#<label for="">Les commentaires de dégustation et conseils d’achat</label>#}
+                        {#<br />#}
+                        {#<input type="radio">#}
+                        {#<label for="">Les produits</label>#}
+                        {#<br />#}
+                        {#<input type="radio">#}
+                        {#<label for="">Les accessoires publicitaires</label>#}
+                        {#<br />#}
+                        {#<input type="radio">#}
+                        {#<label for="">Autre</label>#}
+                        {#<input type="text" placeholder="Indiquez votre réponse ici">#}
+                    {#</div>#}
+                    {#<div class="item">#}
+                        {#<p class="question">5. Etes-vous satisfait de notre accueil ?</p>#}
+                        {#<input type="radio">#}
+                        {#<label for="">Très satisfait</label>#}
+                        {#<br />#}
+                        {#<input type="radio">#}
+                        {#<label for="">Satisfait</label>#}
+                        {#<br />#}
+                        {#<input type="radio">#}
+                        {#<label for="">Insatisfait</label>#}
+                    {#</div>#}
+                    {#<div class="item">#}
+                        {#<p class="question">6. Avez-vous recueillis l’ensemble des informations que vous souhaitiez ?</p>#}
+                        {#<input type="radio">#}
+                        {#<label for="">Oui</label>#}
+                        {#<br />#}
+                        {#<input type="radio">#}
+                        {#<label for="">Non, quelles informations vous ont manqué ? </label>#}
+                    {#</div>#}
+                    {#<div class="item">#}
+                        {#<p class="question">7. Veuillez cocher le ou les termes que vous associez avec votre moment passé au Manoir Champagne Devaux :</p>#}
+                        {#<input type="radio">#}
+                        {#<label for="">Enrichissant</label>#}
+                        {#<br />#}
+                        {#<input type="radio">#}
+                        {#<label for="">Convivial</label>#}
+                        {#<br />#}
+                        {#<input type="radio">#}
+                        {#<label for="">Intéressant</label>#}
+                        {#<br />#}
+                        {#<input type="radio">#}
+                        {#<label for="">Surprenant</label>#}
+                        {#<br />#}
+                        {#<input type="radio">#}
+                        {#<label for="">Agréable</label>#}
+                        {#<br />#}
+                        {#<input type="radio">#}
+                        {#<label for="">Autre</label>#}
+                        {#<input type="text" placeholder="Indiquez votre réponse ici">#}
+                    {#</div>#}
+                    {#<div class="item">#}
+                        {#<p class="question">8.Que pourrions-nous faire pour améliorer vos prochaines expériences de dégustation et/ou d’achat ?</p>#}
+                        {#<textarea name="" id="" cols="30" rows="5"></textarea>#}
+                    {#</div>#}
+                    {#<div class="item">#}
+                        {#<p class="question">9. Recommanderiez-vous notre domaine à vos amis et/ou votre famille ?</p>#}
+                        {#<input type="radio">#}
+                        {#<label for="">Oui</label>#}
+                        {#<br />#}
+                        {#<input type="radio">#}
+                        {#<label for="">Non</label>#}
+                    {#</div>#}
+                    <input type="submit" value="Valider">
+                </form>
+                <p class="last">Nous vous remercions pour votre aide et vous souhaitons un bon retour.</p>
+            </div>
+        </div>
+    </div>
+</section>
+</body>
+
+</html>
