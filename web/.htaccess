@@ -66,3 +66,16 @@ DirectoryIndex app.php
         # RedirectTemp cannot be used instead
     </IfModule>
 </IfModule>
+
+<IfModule mod_expires.c>
+    ExpiresActive On
+    ExpiresDefault "access plus 1 hour"
+    ExpiresByType text/css "access plus 1 hour"
+    ExpiresByType text/plain "access plus 1 hour"
+    ExpiresByType image/gif "access plus 1 hour"
+    ExpiresByType image/png "access plus 1 hour"
+    ExpiresByType image/jpeg "access plus 1 hour"
+    ExpiresByType application/x-javascript "access plus 1 hour"
+    ExpiresByType application/javascript "access plus 1 hour"
+    ExpiresByType application/x-icon "access plus 1 hour"
+</IfModule>
