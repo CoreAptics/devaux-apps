@@ -39,7 +39,7 @@ class ClientType extends AbstractType
             ))
             ->add('newsletter', CheckboxType::class, array(
                 'required'=>false,
-                'label'=>' Je m\'abonne à la newsletter mensuelle Champagne Devaux.'
+                'label'=>' Je ne souhaite pas m\'abonner à la Newsletter Champagne Devaux',
             ))
             ->add('Valider', SubmitType::class)
         ;
