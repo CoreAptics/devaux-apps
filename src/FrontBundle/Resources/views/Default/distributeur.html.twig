@@ -23,7 +23,7 @@
                 <form action="#">
                     <label for="country">Sélectionner un pays</label>
                     <select name="country" id="country" data-action="{{ path('front_country_ajax') }}">
-                        <option value="" style="color: lightgray;">Selectionner un pays</option>
+                        <option value="" disabled="disabled" selected style="color: lightgray;">Selectionner un pays</option>
                         {% for country in listCountry %}
                             <option value="{{ country.id }}">{{ country.name }}</option>
                         {% endfor %}
