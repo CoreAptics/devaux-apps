@@ -1,0 +1,8 @@
+back_parameter_list:
+    path: /
+    defaults: { _controller: BackBundle:Parameter:index }
+
+back_parameter_edit:
+    path: /editer/{id}
+    defaults: { _controller: BackBundle:Parameter:edit }
+

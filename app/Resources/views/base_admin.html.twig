@@ -1,0 +1,346 @@
+{% set route = app.request.attributes.get('_route') %}
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0">
+    <title></title>
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" type="image/png" href="{{ asset('assets/images/placeholders/logo.png') }}">
+    <link rel="stylesheet" type="" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="{{ asset('assets/dist/css/vendors/bootstrap-toggle.min.css') }}" />
+    <link rel="stylesheet" href="{{ asset('assets/dist/css/vendors/select2.css') }}" />
+    <link rel="stylesheet" href="{{ asset('assets/dist/css/vendors/jquery.dataTables.min.css') }}" />
+    <link rel="stylesheet" href="{{ asset('assets/dist/css/vendors/x-editable.css') }}" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery.perfect-scrollbar/0.6.16/css/perfect-scrollbar.min.css"/>
+    <link data-type="dev-refresh" rel="stylesheet" href="{{ asset('assets/dist/css/back.css') }}" />
+</head>
+<body class="admin">
+    <div id="admin" class="has_chat">
+        {% block full %}
+        {% include 'adminclude/header.html.twig'%}
+        {% include 'adminclude/sidebar.html.twig'%}
+        {% include 'adminclude/save.html.twig'%}
+        <div id="content">
+            <div id="pre-content">
+                <div class="container-fluid">
+                    <div class="page-title">
+                        <h1 class="title nmb">Admin page</h1>
+                        <ul class="breadcrumbs">
+                            {% block routePage %}{% endblock %}
+                        </ul>
+                    </div>
+                    {% block contentTabs %}{% endblock %}
+                </div>
+            </div>
+            <div class="container-fluid">
+                {% block contentPage %}{% endblock %}
+            </div>
+        </div>
+        {% include 'adminclude/fullscreen.html.twig'%}
+        {% endblock %}
+        {% include 'adminclude/loading.html.twig'%}
+    </div>
+    {% block javascripts %}
+        <script src="{{ asset('assets/dist/js/vendors/jquery.min.js') }}"></script>
+        <script src="//netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
+        <script src="{{ asset('assets/dist/js/vendors/jquery-ui.min.js') }}"></script>
+        <script src="{{ asset('assets/dist/js/vendors/run_prettify.js') }}"></script>
+        <script src="{{ asset('assets/dist/js/vendors/perfect-scrollbar.jquery.min.js') }}"></script>
+        <!--<script src="dist/js/back.bundle.js"></script>-->
+        <script src="{{ asset('assets/dist/js/vendors/bootstrap-toggle.min.js') }}"></script>
+        <script src="{{ asset('assets/dist/js/vendors/select2.min.js') }}"></script>
+        <script src="{{ asset('assets/dist/js/vendors/jquery.dataTables.min.js') }}"></script>
+        <script src="{{ asset('assets/dist/js/vendors/jquery.matchHeight.js') }}"></script>
+        <script src="{{ asset('assets/dist/js/vendors/jquery.gritter.min.js') }}"></script>
+        <script src="{{ asset('assets/dist/js/vendors/jquery.mousewheel.min.js') }}"></script>
+        <script src="{{ asset('assets/dist/js/vendors/x-editable.min.js') }}"></script>
+        <script src="{{ asset('assets/dist/js/vendors/autobahn.js') }}"></script>
+        <script type="text/javascript">
+            //match height
+            $(function() {
+                $('.mh').matchHeight();
+            });
+            $(window).on("load", function(){
+                $('#loading').addClass("loaded");
+            });
+            $(window).on("unload", function(){
+                $('#loading').removeClass("loaded");
+            });
+            var admin = {
+                el: '#admin',
+                $el: $(this.el),
+                vs: 15,
+                gutter: 15,
+                variables: function(){
+                    this.header = this.$el.find('#header');
+                },
+                initialize: function(){
+                    this.variables();
+                },
+                getHeaderHeight: function(){
+                    return this.header.height();
+                }
+            }
+            admin.initialize();
+            // gritter
+            // $.gritter.add({
+            //     // heading of the notification
+            //     title: 'This is a sticky notice!',
+            //     // the text inside the notification
+            //     text: 'Your message here',
+            //     // the image to display on the left
+            //     // image: '1.jpg',
+            //     // if you want it to fade out on its own or just sit there
+            //     sticky: true,
+            //     // the time you want it to be alive for before fading out
+            //     time: '',
+            //     // the class name you want to apply to that specific message
+            //     // class_name: 'my-sticky-class',
+            //     // custom the position
+            //     // position: "bottom-right",
+            //     // how fast notifications fade in
+            //     fade_in_speed: 'medium',
+            //     // how fast the notices fade out
+            //     fade_out_speed: 1000,
+            //     // function called before it opens
+            //     before_open: function(){},
+            //     // function called after it opens
+            //     after_open: function(e){},
+            //     // function called before it closes
+            //     before_close: function(e, manual_close){},
+            //     // (function called after it closes
+            //     after_close: function(e, manual_close){}
+            // });
+            $('.gritter-info').on("click", function(){
+                var title = $(this).attr("data-gritter-title") || "No title added";
+                var message = $(this).attr("data-gritter-message") || "";
+                var cssClass = "";
+                if (message === "") {
+                    cssClass = "gritter-no-message";
+                }
+                $.gritter.add({
+                    // heading of the notification
+                    title: title,
+                    // the text inside the notification
+                    text: message,
+                    // the image to display on the left
+                    // image: '1.jpg',
+                    // if you want it to fade out on its own or just sit there
+                    // sticky: true,
+                    // the time you want it to be alive for before fading out
+                    time: 10000,
+                    // the class name you want to apply to that specific message
+                    class_name: cssClass,
+                    // custom the position
+                    // position: "bottom-right",
+                    // how fast notifications fade in
+                    fade_in_speed: 'medium',
+                    // how fast the notices fade out
+                    fade_out_speed: 1000,
+                    // function called before it opens
+                    before_open: function(){},
+                    // function called after it opens
+                    after_open: function(e){},
+                    // function called before it closes
+                    before_close: function(e, manual_close){},
+                    // (function called after it closes
+                    after_close: function(e, manual_close){}
+                });
+            });
+            $('.gritter-message').on("click", function(){
+                var title = $(this).attr("data-gritter-title") || "No title added";
+                var message = $(this).attr("data-gritter-message") || "";
+                var cssClass = "";
+                if (message === "") {
+                    cssClass = "gritter-no-message";
+                }
+                $.gritter.add({
+                    // heading of the notification
+                    title: title,
+                    // the text inside the notification
+                    text: message,
+                    // the image to display on the left
+                    // image: '1.jpg',
+                    // if you want it to fade out on its own or just sit there
+                    sticky: true,
+                    // the time you want it to be alive for before fading out
+                    // time: 3000,
+                    // the class name you want to apply to that specific message
+                    class_name: cssClass,
+                    // custom the position
+                    // position: "bottom-right",
+                    // how fast notifications fade in
+                    fade_in_speed: 'medium',
+                    // how fast the notices fade out
+                    fade_out_speed: 1000,
+                    // function called before it opens
+                    before_open: function(){},
+                    // function called after it opens
+                    after_open: function(e){},
+                    // function called before it closes
+                    before_close: function(e, manual_close){},
+                    // (function called after it closes
+                    after_close: function(e, manual_close){}
+                });
+            });
+            //x-editable
+            $.fn.editable.defaults.mode = 'popup';
+            $(".x-editable, .x-editable-popup").each(function(){
+                $("#"+this.id).editable({mode: "popup"});
+            });
+            $(".x-editable-inline").each(function(){
+                $("#"+this.id).editable({mode: "inline"});
+            });
+            //
+            $('.tabs-container').perfectScrollbar({'update':true, 'suppressScrollY':true});
+            $('ul.menu, #friend-tab').perfectScrollbar({'update':true});
+            $('#open-menu').on('click', function(){
+                $('#sidebar').toggleClass('opened');
+            });
+            $(window).on('click touchstart', function(e){
+                if(!$(e.target).closest("#sidebar").length && !$(e.target).closest("#open-menu").length){
+                    $('#sidebar').removeClass('opened');
+                }
+            });
+            $("a[href='#top']").click(function(e) {
+                e.preventDefault();
+                $("html, body").animate({ scrollTop: 0 }, 750 , "easeOutExpo");
+                return false;
+            });
+            $("table tr").on('click', function(e){
+                if ($(this).data("url") != undefined && !$(e.target).is("a")) {
+                    window.location = $(this).data("url");
+                }
+            });
+            var ghost = {
+                initialize: function(){
+                    this.$el = $(this)
+                    var scope = this.$el
+                    this.disableScrollable();
+                    this.tabs('.tabs-container');
+                    this.accordions('.accordion');
+                    this.dropdowns('[data-type="dropdown-link"]');
+                    $(window).on("click",function(e){
+                        scope.trigger('outside', [e.target]);
+                    });
+                    this.popup('#popup', '#fullscreen');
+                },
+                disableScrollable: function(){
+                    var scrollableContainer = $('.disable-scrollable');
+                    var scrollable = scrollableContainer.find('.scrollable');
+                    scrollableContainer.on("click", function(){
+                        scrollable.addClass('active');
+                    });
+                    scrollableContainer.on("mouseleave touchcancel touchend", function(){
+                        scrollable.removeClass('active');
+                    });
+                    $(window).on("touchmove", function(){
+                        scrollable.removeClass('active');
+                    });
+                },
+                tabs: function(el){
+                    $el = $(el);
+                    $el.mousewheel(function(e, delta) {
+                        this.scrollLeft -= (delta * 40);
+                        e.preventDefault();
+                    });
+                },
+                dropdowns: function(el){
+                    $el = $(el);
+                    var scope = this.$el
+                    $el.each(function(){
+                        var element = $(this)
+                        var target = element.parent().find($(element.attr('href')));
+                        if(target != undefined){
+                            element.on("click", function(e){
+                                e.preventDefault();
+                                target.toggleClass('active');
+                            });
+                        }
+                    });
+                },
+                accordions: function(el){
+                    $el = $(el);
+                    $el.each(function(){
+                        var element = $(this);
+                        var item = element.find('>.accordion-item');
+                        // var allItems = element.find('.accordion-item');
+                        item.each(function(){
+                            var currentItem = $(this)
+                            var head = currentItem.find('>.accordion-head');
+                            var body = currentItem.find('>.accordion-body');
+                            // var allBodies = $(this).parent().find('.accordion-body');
+                            head.on('click', function(e){
+                                e.preventDefault();
+                                if (currentItem.hasClass('active')) {
+                                    currentItem.find('.accordion-body').slideUp(200);
+                                    currentItem.find('.accordion-item').removeClass('active');
+                                    currentItem.removeClass('active');
+                                } else{
+                                    currentItem.parent().find('.accordion-body').slideUp(200);
+                                    currentItem.parent().find('.accordion-item').removeClass('active');
+                                    body.slideToggle(200);
+                                    currentItem.toggleClass('active');
+                                }
+                            });
+                        });
+                    });
+                },
+                popup: function(el, container){
+                    var $el = $(el);
+                    var $container = $(container);
+                    var close = $el.find('.popup-close');
+                    $('[data-trigger="popup"]').on("click", function(e){
+                        e.preventDefault();
+                        $container.addClass("active");
+                        $el.addClass("active");
+                    });
+                    close.on("click", function(e){
+                        e.preventDefault();
+                        $container.removeClass("active");
+                        $el.removeClass("active");
+                    });
+                }
+            }
+            ghost.initialize();
+
+
+            $(document).ready(function() {
+
+                $(".select2").select2();
+
+                $('.dataTable').DataTable({
+                    'lengthChange': false,
+                    'language': {
+                        'url': "{{ asset('assets/dist/css/vendors/French.json') }}"
+                    },
+                    'dom': 'f<"table-wrapper"t>ip'
+                });
+                $('.btn-danger, .button.danger').click(function () {
+                    var click = confirm('Êtes-vous sûr de cette action ?');
+
+                    if(click == false){
+                        return false;
+                    }
+                });
+            } );
+        </script>
+        <script>
+        var href = $('[data-type="dev-refresh"]').attr("href");
+        $(document).keyup(function(e) {
+            if (e.keyCode == 27) {
+                console.log("Refreshing");
+                number = Math.floor(Math.random() * (10000 - 0 + 1)) + 0;
+                $('[data-type="dev-refresh"]').attr("href", href + "?" + number);
+            }
+        });
+        </script>
+    {% endblock %}
+</body>
+
+</html>

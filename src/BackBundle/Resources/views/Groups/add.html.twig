@@ -1,0 +1,35 @@
+{% extends 'base_admin.html.twig' %}
+
+{% block sidebarTitle %}ADMIN MENU{% endblock %}
+{% block titlePage %}{% endblock %}
+
+{% block routePage %}
+    <li><a href="{{ path('back_homepage') }}">Admin</a></li>
+    <li><a href="{{ path('back_group_list') }}">Groupes</a></li>
+    <li><a href="#">Ajout</a></li>
+{% endblock %}
+
+{% block contentPage %}
+
+    <section id='users'>
+        <strong><h2 class="title">Ajout d'un utilisateur</h2></strong>
+        <div class="row">
+            <div class="mh col md-4">
+                <div class="block">
+                    {{ form_start(form) }}
+                    <div class="row">
+                        <div class="col-lg-6 offset-1">
+                            {{ form_label(form.name) }}
+                            {{ form_widget(form.name) }}
+
+                            {{ form_label(form.roles) }}
+                            {{ form_widget(form.roles) }}
+
+                            {{ form_rest(form) }}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+{% endblock %}

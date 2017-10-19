@@ -1,0 +1,19 @@
+back_user_list:
+    path: /
+    defaults: { _controller: BackBundle:User:index }
+
+back_user_add:
+    path: /ajouter
+    defaults: { _controller: BackBundle:User:add }
+
+back_user_edit:
+    path: /editer/{id}
+    defaults: { _controller: BackBundle:User:edit }
+
+back_user_delete:
+    path: /supprimer/{id}
+    defaults: { _controller: BackBundle:User:delete }
+
+back_user_is_active:
+    path: /desactivation/{id}
+    defaults: { _controller: BackBundle:User:isActive }

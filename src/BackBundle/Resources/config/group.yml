@@ -1,0 +1,15 @@
+back_group_list:
+    path: /
+    defaults: { _controller: BackBundle:Group:list }
+
+back_group_add:
+    path: /ajouter
+    defaults: { _controller: BackBundle:Group:add }
+
+back_group_edit:
+    path: /editer/{id}
+    defaults: { _controller: BackBundle:Group:edit }
+
+back_group_delete:
+    path: /supprimer/{id}
+    defaults: { _controller: BackBundle:Group:delete }

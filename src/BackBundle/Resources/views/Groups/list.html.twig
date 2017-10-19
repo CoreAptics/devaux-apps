@@ -1,0 +1,62 @@
+{% extends 'base_admin.html.twig' %}
+
+{% block sidebarTitle %}ADMIN MENU{% endblock %}
+
+{% block routePage %}
+    <li><a href="{{ path('back_homepage') }}">Admin</a></li>
+    <li><a href="#">Groupes</a></li>
+{% endblock %}
+
+{% block contentTabs %}
+    <div class="tabs-container">
+        <ul class="tabs">
+            <li class="{% if route matches '{back_admin_list}' %}active{% endif %}"><a href="{{ path('back_admin_list') }}">Administrateurs</a></li>
+            <li class="{% if route matches '{back_group_list}' %}active{% endif %}"><a href="{{ path('back_group_list') }}">Groupes</a></li>
+        </ul>
+    </div>
+{% endblock %}
+
+{% block contentPage %}
+
+    <section id='users'>
+        <strong><h2 class="title">Groupes</h2></strong>
+        <div class="row">
+            <div class="mh col md-12">
+                <div class="block">
+                    <a class="button" href="{{ path('back_group_add') }}"><i class="in-button left ion-android-add"></i>Ajouter un groupe</a>
+                </div>
+            </div>
+            <div class="mh col md-12">
+                <div class="block npb">
+                    <div id="table">
+                        <table class="dataTable mb">
+                            <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>Nom</th>
+                                <th>Nombre d'utilisateurs</th>
+                                <th></th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            {% for group in listGroups %}
+                                <tr>
+                                    <td>{{ group.id }}</td>
+                                    <td>{{ group.name }}</td>
+                                    <td>{{ group.admins|length }}</td>
+                                    <td class="text-right">
+                                        <div class="group">
+                                            <a class="button" href="{{ path('back_group_edit', {'id': group.id}) }}"><i class="in-button left ion-android-create"></i>Edit</a>
+                                            <a class="button danger" href="{{ path('back_group_delete', {'id': group.id}) }}"><i class="in-button ion-close-round"></i></a>
+                                        </div>
+                                    </td>
+                                </tr>
+                            {% endfor %}
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+{% endblock %}

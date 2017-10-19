@@ -1,0 +1,53 @@
+{% extends 'base_admin.html.twig' %}
+
+{% block sidebarTitle %}ADMIN MENU{% endblock %}
+{% block titlePage %}{% endblock %}
+
+{% block routePage %}
+    <li><a href="{{ path('back_homepage') }}">Admin</a></li>
+    <li><a href="{{ path('back_admin_list') }}">Administrateurs</a></li>
+    <li><a href="#">Modification</a></li>
+{% endblock %}
+
+{% block contentPage %}
+
+    <section id='users'>
+        <strong><h2 class="title">Modification de l'administrateur {{ admin.email }}</h2></strong>
+        <div class="row">
+            <div class="mh col md-12">
+                <div class="block">
+                    <div class="row">
+                        {{ form_start(form) }}
+                        {#<div class="col-lg-6 offset-1">#}
+                            {#<div class="panel panel-primary">#}
+                                {#<div class="panel-heading">Informations utilisateur</div>#}
+                                {#<table class="table">#}
+                                    {#<tr>#}
+                                        {#<th>{{ form_label(form.username) }}</th>#}
+                                        {#<td>{{ form_widget(form.username) }}</td>#}
+                                    {#</tr>#}
+                                    {#<tr>#}
+                                        {#<th>{{ form_label(form.firstname) }}</th>#}
+                                        {#<td>{{ form_widget(form.firstname) }}</td>#}
+                                    {#</tr>#}
+                                    {#<tr>#}
+                                        {#<th>{{ form_label(form.email) }}</th>#}
+                                        {#<td>{{ form_widget(form.email) }}</td>#}
+                                    {#</tr>#}
+                                {#</table>#}
+                            {#</div>#}
+                            {#<button type="submit" class="btn pull-right">Valider</button>#}
+                        {#</div>#}
+                        <div class="col-lg-6 offset-1">
+                            {{ form_label(form.username) }}
+                            {{ form_widget(form.username) }}
+                            {{ form_label(form.email) }}
+                            {{ form_widget(form.email) }}
+                            {{ form_rest(form) }}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+{% endblock %}

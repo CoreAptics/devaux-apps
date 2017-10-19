@@ -1,0 +1,15 @@
+back_admin_list:
+    path: /
+    defaults: { _controller: BackBundle:Admin:index }
+
+back_admin_add:
+    path: /ajouter
+    defaults: { _controller: BackBundle:Admin:add }
+
+back_admin_edit:
+    path: /editer/{id}
+    defaults: { _controller: BackBundle:Admin:edit }
+
+back_admin_delete:
+    path: /supprimer/{id}
+    defaults: { _controller: BackBundle:Admin:delete }

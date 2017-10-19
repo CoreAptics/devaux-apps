@@ -8,6 +8,6 @@ class DashboardController extends Controller
 {
     public function indexAction()
     {
-        return $this->render('@Back/Default/index.html.twig');
+        return $this->render('@Back/Admin/index.html.twig');
     }
 }

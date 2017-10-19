@@ -14,6 +14,11 @@ use Symfony\Component\Security\Core\User\AdvancedUserInterface;
 class Admin implements AdvancedUserInterface
 {
     /**
+     * @ORM\ManyToMany(targetEntity="CoreBundle\Entity\Groups", inversedBy="admins")
+     */
+    private $groups;
+
+    /**
      * @var int
      *
      * @ORM\Column(name="id", type="integer")
@@ -180,4 +185,45 @@ class Admin implements AdvancedUserInterface
     }
 
 
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->groups = new \Doctrine\Common\Collections\ArrayCollection();
+    }
+
+    /**
+     * Add group
+     *
+     * @param \CoreBundle\Entity\Groups $group
+     *
+     * @return Admin
+     */
+    public function addGroup(\CoreBundle\Entity\Groups $group)
+    {
+        $this->groups[] = $group;
+
+        return $this;
+    }
+
+    /**
+     * Remove group
+     *
+     * @param \CoreBundle\Entity\Groups $group
+     */
+    public function removeGroup(\CoreBundle\Entity\Groups $group)
+    {
+        $this->groups->removeElement($group);
+    }
+
+    /**
+     * Get groups
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getGroups()
+    {
+        return $this->groups;
+    }
 }

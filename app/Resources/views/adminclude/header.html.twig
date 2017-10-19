@@ -1,0 +1,43 @@
+
+    <header id="header">
+        <div class="container-fluid">
+            <nav>
+                <div class="user pull-right ">
+                    <ul>
+                        <li class="dropdown-wrapper">
+                            {% if is_granted('IS_AUTHENTICATED_FULLY') %}
+                                <a href=".dropdown" data-type="dropdown-link" class="no-default"><span>{{ app.user.email }} <i class="ion-arrow-down-b"></i></span></a>
+                            {% else %}
+                                <a href=".dropdown" data-type="dropdown-link" class="no-default"><span>Visiteur <i class="ion-arrow-down-b"></i></span></a>
+                            {% endif %}
+                            <div class="dropdown">
+                                <ul class="dropdown-container">
+                                    {% if is_granted('IS_AUTHENTICATED_FULLY') %}
+                                        <li><a href="{{ path('back_admin_logout') }}">Deconnexion</a></li>
+                                    {% else %}
+                                        <li><a href="{{ path('back_admin_login') }}">Connexion</a></li>
+                                    {% endif %}
+                                    {% block dropdownMenu %}{% endblock %}
+                                </ul>
+                            </div>
+                        </li>
+                    </ul>
+                    <div class="user-image">
+                        <div class="image" style="background-image: url({% block imgAdmin %}{{ asset('assets/images/userDefault.jpg') }}{% endblock %})">
+                            <a href=".dropdown" data-type="dropdown-link">
+                                <div class="icon">
+                                    <i class="ion-person size-18"></i>
+                                </div>
+                            </a>
+                            <div class="dropdown">
+                                <ul class="dropdown-container">
+                                    {{ block('dropdownMenu') }}
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <button type="" class="button square silent" id="open-menu"><i class="in-button size-24 ion-grid"></i></button>
+            </nav>
+        </div>
+    </header>

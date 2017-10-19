@@ -1,0 +1,31 @@
+<div id="sidebar">
+    <div class="brand">
+        <a href="">
+            <div class="brand-logo" style="background-image: url({{ asset('assets/images/placeholders/logo.png') }});"></div>
+        </a>
+    </div>
+    <div class="sidebar-wrapper">
+        <ul class="menu accordion">
+            <li><span>{% block sidebarTitle %}Outils d'administration{% endblock %}</span></li>
+            <li><a href="{{ path('back_homepage') }}"><i class="inner left ion-stats-bars"></i>Dashboard</a></li>
+            <li class="accordion-item">
+                <a href="#" class="accordion-head"><i class="inner left ion-person-stalker"></i>Gestion utilisateurs<i class="ion-chevron-right pull-right accordion-arrow"></i></a>
+                <ul class="accordion-body">
+                    <li><a href="{{ path('back_admin_list') }}">Administrateurs</a></li>
+                    <li><a href="{{ path('back_group_list') }}">Groupes</a></li>
+                </ul>
+            </li>
+            <li><a href="{{ path('back_client_list') }}"><i class="inner left ion-android-contact"></i>Clients</a></li>
+            <li><span>Autre</span></li>
+            <li><a href="{{ path('back_admin_logout') }}"><i class="inner left ion-android-exit"></i>Déconnexion</a></li>
+            <!-- <li><a href="{{ path('back_admin_login') }}"><i class="inner left ion-power"></i>Connexion</a></li> -->
+        </ul>
+    </div>
+    <footer>
+        <ul class="inline">
+            <li><a href="">Site</a></li>
+            <li><a href="">Help</a></li>
+            <li><a href="">Namkin</a></li>
+        </ul>
+    </footer>
+</div>

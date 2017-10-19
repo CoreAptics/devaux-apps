@@ -1,0 +1,15 @@
+back_client_list:
+    path: /
+    defaults: { _controller: BackBundle:Client:list }
+
+back_client_add:
+    path: /ajouter
+    defaults: { _controller: BackBundle:Client:add }
+
+back_client_edit:
+    path: /editer/{id}
+    defaults: { _controller: BackBundle:Client:edit }
+
+back_client_delete:
+    path: /supprimer/{id}
+    defaults: { _controller: BackBundle:Client:delete }

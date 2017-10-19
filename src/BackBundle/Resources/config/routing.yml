@@ -2,6 +2,10 @@ back_homepage:
     path:     /
     defaults: { _controller: BackBundle:Dashboard:index }
 
+back_layout:
+    path:     /layout
+    defaults: { _controller: BackBundle:Dashboard:layout }
+
 back_admin_login:
     path:     /login
     defaults: { _controller: BackBundle:Admin:login }
@@ -11,3 +15,23 @@ back_admin_login_check:
 
 back_admin_logout:
     path:     /logout
+
+back_user:
+    prefix: /utilisateur
+    resource: user.yml
+
+back_admin:
+    prefix: /administrateur
+    resource: admin.yml
+
+back_group:
+    prefix: /group
+    resource: group.yml
+
+back_parameter:
+    prefix: /parametre
+    resource: parameter.yml
+
+back_client:
+    prefix: /clients
+    resource: client.yml

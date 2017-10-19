@@ -1,0 +1,443 @@
+{% extends 'base_admin.html.twig' %}
+
+{% block sidebarTitle %}ADMIN MENU{% endblock %}
+{% block titlePage %}{% endblock %}
+{% block routePage %}
+    <li><a href="">Admin</a></li>
+    <li><a href="">Page</a></li>
+    <li><a href="">Documentation</a></li>
+{% endblock %}
+{% block contentTabs %}
+    <div class="tabs-container">
+        <ul class="tabs">
+            <li class="active"><a href="">Documentation</a></li>
+            <li><a href="">Page</a></li>
+            <li><a href="">More</a></li>
+            <li><a href="">More</a></li>
+            <li><a href="">More</a></li>
+            <li><a href="">More</a></li>
+            <li><a href="">More</a></li>
+            <li><a href="">More</a></li>
+            <li><a href="">More</a></li>
+            <li><a href="">More</a></li>
+            <li><a href="">More</a></li>
+            <li><a href="">More</a></li>
+            <li><a href="">More</a></li>
+            <li><a href="">More</a></li>
+            <li><a href="">More</a></li>
+            <li><a href="">More</a></li>
+            <li><a href="">More</a></li>
+            <li><a href="">More</a></li>
+            <li><a href="">More</a></li>
+            <li><a href="">More</a></li>
+            <li><a href="">More</a></li>
+            <li><a href="">More</a></li>
+            <li><a href="">More</a></li>
+        </ul>
+    </div>
+{% endblock %}
+{% block sidebarMenu %}
+    <li><a href="{{ path('back_homepage') }}"><i class="inner left ion-stats-bars"></i>Dashboard</a></li>
+    <li><a href="#layout"><i class="inner left ion-cube"></i>Layout</a></li>
+    <li class="accordion-item">
+    <a class="accordion-head" href="#grid"><i class="inner left ion-ios-grid-view"></i>Grid<i class="ion-chevron-right pull-right accordion-arrow"></i></a>
+    <ul class="accordion-body accordion">
+    <li><a href="#">Profile</a></li>
+    <li><a href="#">Profile</a></li>
+    <li><a href="#">Profile</a></li>
+    <li class="accordion-item">
+    <a href="#" class="accordion-head">Profile<i class="ion-chevron-right pull-right accordion-arrow"></i></a>
+    <ul class="accordion-body accordion">
+    <li><a href="#">Profile2</a></li>
+    <li><a href="#">Profile2</a></li>
+    <li class="accordion-item">
+    <a class="accordion-head" href="#">Profile2<i class="ion-chevron-right pull-right accordion-arrow"></i></a>
+    <ul class="accordion-body">
+    <li><a href="#">Profile3</a></li>
+    <li><a href="#">Profile3</a></li>
+    <li><a href="#">Profile3</a></li>
+    <li><a href="#">Profile3</a></li>
+    </ul>
+    </li>
+    <li><a href="#">Profile2</a></li>
+    <li><a href="#">Profile2</a></li>
+    <li><a href="#">Profile2</a></li>
+    </ul>
+    </li>
+    <li><a href="#">Profile</a></li>
+    </ul>
+    </li>
+    <li><a href="#typography"><i class="inner left ion-edit"></i>Typography</a></li>
+    <li><a href="#icons"><i class="inner left ion-happy"></i>Icons</a></li>
+    <li><a href="#links"><i class="inner left ion-share"></i>Links</a></li>
+    <li><a href="#buttons"><i class="inner left ion-mouse"></i>Buttons</a></li>
+    <li><a href="#forms"><i class="inner left ion-clipboard"></i>Forms</a></li>
+    <li><a href="#lists"><i class="inner left ion-ios-paper"></i>Lists</a></li>
+    <li><a href="#code"><i class="inner left ion-code"></i>Code</a></li>
+    <li><a href="#tables"><i class="inner left ion-android-funnel"></i>Tables</a></li>
+    <li><a href="#spacing"><i class="inner left ion-arrow-expand"></i>Spacing</a></li>
+    <li><span>Menu</span></li>
+    <li><a href="#">More Links</a></li>
+    <li><a href="#">More Links</a></li>
+    <li><a href="#">More Links</a></li>
+    <li><a href="#">More Links</a></li>
+    <li><a href="#">More Links</a></li>
+    <li><a href="#">More Links</a></li>
+    <li><a href="#">More Links</a></li>
+    <li><a href="#">More Links</a></li>
+    <li><a href="#">More Links</a></li>
+    <li><a href="#">More Links</a></li>
+    <li><a href="#">More Links</a></li>
+    <li><a href="#">More Links</a></li>
+    <li><a href="#">More Links</a></li>
+{% endblock %}
+{% block contentPage %}
+    <section id='exemple'>
+        <strong><h2 class="title">Exemple</h2></strong>
+        <em>related files: </em><code>_forms.sass</code><br><br>
+        <div class="row">
+            <div class="mh col md-8">
+                <div class="block">
+                    <div class="row">
+                        <div class="col nmb">
+                            <div class="group pull-left">
+                                <div class="tabs-container">
+                                    <ul class="tabs">
+                                        <li class="active"><a href="">FR</a></li>
+                                        <li><a href="">EN</a></li>
+                                        <li><a href="">SE</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <table class="dataTable mb">
+                        <thead>
+                            <tr>
+                                <th>Name</th>
+                                <th>Age</th>
+                                <th>Sex</th>
+                                <th>Location</th>
+                                <th></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>
+                                    <div class="group">
+                                        <img src="{{ asset('assets/images/userDefault.jpg') }}"/> Noah Fenghom
+                                    </div>
+                                </td>
+                                <td>21</td>
+                                <td>Male</td>
+                                <td>Troyes</td>
+                                <td class="text-right">
+                                    <div class="group">
+                                        <a class="button" href="#"><i class="in-button left ion-eye"></i>View</a>
+                                        <a class="button" href="#"><i class="in-button left ion-plus-round"></i>Edit</a>
+                                        <a class="button danger" href="#"><i class="in-button ion-close-round"></i></a>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <div class="group">
+                                        <img src="{{ asset('assets/images/userDefault.jpg') }}"/> Dwayne Johnson
+                                    </div>
+                                </td>
+                                <td>42</td>
+                                <td>Male</td>
+                                <td>Hayward</td>
+                                <td class="text-right">
+                                    <div class="group">
+                                        <a class="button" href="#"><i class="in-button left ion-eye"></i>View</a>
+                                        <a class="button" href="#"><i class="in-button left ion-plus-round"></i>Edit</a>
+                                        <a class="button danger" href="#"><i class="in-button ion-close-round"></i></a>
+                                    </div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <div class="row">
+                        <div class="col nmb">
+                            <div class="block-bottom">
+                                <div class="group pull-left">
+                                    <button class="pull-left ghost round nmb mr- gritter-info" data-gritter-title="Saved to favorites" data-gritter-message="" type="button" name="button"><i class="in-button ion-heart"></i></button>
+                                    <button class="pull-left ghost round nmb mr- gritter-message" data-gritter-title="Reported for validation" data-gritter-message="Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum." type="button" name="button"><i class="in-button ion-flag"></i></button>
+                                    <button class="pull-left ghost round nmb mr- gritter-message" data-gritter-title="How to Keep Wasps Away" data-gritter-message="Nothing ruins a picnic or day outside quicker than wasps buzzing around.<br><br>Using natural or store-bought wasp repellent, making sure you secure areas where wasps can get in, and getting rid of food that can attract wasps can help keep them away.<br><br>Using a water and soap solution, setting traps, or calling a pest expert can help you get rid of wasps if you already have them.<br><br>Seal cracks in your home. This can prevent wasps that have nests near your home from actually getting in.<br><br>Look for cracks near the edges of your siding, where power lines enter your house, or holes in window screens. Then use an appropriate sealant – usually caulk for cracks near the siding or where power lines enter and patches for screens – to seal the holes." type="button" name="button"><i class="in-button ion-information"></i></button>
+                                    <button class="pull-left ghost round nmb mr- gritter-info" data-gritter-title="It doesn't work yet!" data-gritter-message="Our team of monkey scientists is working on it!" type="button" name="button"><i class="in-button ion-more"></i></button>
+                                </div>
+                                <div class="group pull-right">
+                                    <button class="pull-left silent nmb mr-" type="button" name="button">Cancel</button>
+                                    <button class="pull-left nmb" type="button" name="button">Sync Everything</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="mh col md-4">
+                <div class="block npb">
+                    <p id="description-1" class="x-editable" data-type="textarea" data-pk="description-1" data-url="" data-title="Description">Lorem ipsum dolor sit ametLorem ipsum</p>
+                    <p id="description-2" class="x-editable-inline" data-type="textarea" data-pk="description-2" data-url="" data-title="Description">Lorem ipsum dolor sit ametLorem ipsum</p>
+                    <p id="description-3" class="x-editable-popup" data-type="textarea" data-pk="description-3" data-url="" data-title="Description">Lorem ipsum dolor sit ametLorem ipsum</p>
+                    <form class="row" action="index.html" method="post">
+                        <div class="form-group col md-6">
+                            <label for="">Purity level:</label>
+                            <select class="select2" id="testWS">
+                                <option value="Pristine">Pristine</option>
+                                <option value="Woah">Woah</option>
+                                <option value="Nice">Nice</option>
+                                <option value="Good">Good</option>
+                                <option value="Ok">Ok</option>
+                            </select>
+                        </div>
+                        <div class="form-group col md-6">
+                            <label for="">Awesome mode:</label>
+                            <input type="checkbox" checked data-toggle="toggle">
+                        </div>
+                        <div class="form-group col">
+                            <label for="">Cool tags:</label>
+                            <select class="select2" multiple="multiple">
+                                <option value="Chuck Norris">Chuck Norris</option>
+                                <option value="Toy Story 2">Toy Story 2</option>
+                                <option value="Samurai Pizza Cats">Samurai Pizza Cats</option>
+                                <option value="Not Despacito">Not Despacito</option>
+                                <option value="Guitar Hero">Guitar Hero</option>
+                                <option value="Namkin">Namkin</option>
+                                <option value="Canard">Canard</option>
+                            </select>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section id='layout'>
+        <strong><h2 class="title">Admin layout</h2></strong>
+        <!--<em>related files: </em><code>_base.sass</code>, <code>_typography.sass</code><br><br>-->
+        <div class="row">
+            <div class="mh col md-12">
+                <div class="block">
+                    <p>The admin layout is very simple. Each page must have the following structure:</p>
+                </div>
+            </div>
+            <div class="mh col md-12">
+                <div class="block">
+<pre class="prettyprint linenums">&lt;section id='id'&gt;
+    &lt;strong&gt;&lt;h2&gt;Page Title&lt;/h2&gt;&lt;/strong&gt;
+    // Your content out of the block
+    &lt;div class="row"&gt;
+        &lt;div class="mh col md-12"&gt; &lt;!-- There you can change the size of columns but I recommend having md or lg as minimum breakpoint --&gt;
+            &lt;div class="block"&gt; &lt;!-- This content wrapper allows you to have the white background with border --&gt;
+                // Your content in the block
+            &lt;/div&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+&lt;/section&gt;</pre>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="grid">
+        <strong><h2 class="title">The grid</h2></strong>
+        <em>related files: </em><code>_grid.sass</code><br><br>
+        <div class="row">
+            <div class="mh col xs-12">
+                <div class="block">
+                    <p>The grid is based on <a target="_blank" href="http://getbootstrap.com/css/#grid">Bootstrap's grid</a>                                    and features a
+                        <u>12-column fluid grid with a max width of 1200px</u>, that shrinks with the browser/device
+                        at smaller sizes. The max width, the number of columns, the gutter width and the breakpoints
+                        can be changed with their respective variables and all columns will resize accordingly.</p>
+                </div>
+            </div>
+        </div>
+        <div class="row big">
+            <div class="custom-grid col xs-1"></div>
+            <div class="custom-grid col xs-1"></div>
+            <div class="custom-grid col xs-1"></div>
+            <div class="custom-grid col xs-1"></div>
+            <div class="custom-grid col xs-1"></div>
+            <div class="custom-grid col xs-1"></div>
+            <div class="custom-grid col xs-1"></div>
+            <div class="custom-grid col xs-1"></div>
+            <div class="custom-grid col xs-1"></div>
+            <div class="custom-grid col xs-1"></div>
+            <div class="custom-grid col xs-1"></div>
+            <div class="custom-grid col xs-1"></div>
+        </div>
+        <div class="row medium">
+            <div class="custom-grid col xs-4"></div>
+            <div class="custom-grid col xs-4"></div>
+            <div class="custom-grid col xs-4"></div>
+        </div>
+        <div class="row small">
+            <div class="custom-grid col xs-3"></div>
+            <div class="custom-grid col xs-3"></div>
+            <div class="custom-grid col xs-3"></div>
+            <div class="custom-grid col xs-3"></div>
+        </div>
+        <div class="row">
+            <div class="mh col xs-12">
+                <div class="block">
+                    <p>You can use the grid just like in <a target="_blank" href="http://getbootstrap.com/css/#grid-options">Bootstrap's grid options</a>                                    except that there is:
+                    <ul>
+                        <li>a class <code>.col</code>, <code>.cols</code>, <code>.column</code> or <code>.columns</code>                                            to define a column</li>
+                        <li>a class starting with the breakpoint and followed by the column width <code>xs-12</code>                                            to define a column width</li>
+                    </ul>
+                    That way, you don't have to use <code>.col-something</code> everytime you want to add
+                    a column size and you can possibly change the style of your <code>.col</code>, <code>.cols</code>,
+                    <code>.column</code> or <code>.columns</code> classes.
+                    </p>
+                </div>
+            </div>
+        </div>
+        <em>exemple: </em>
+        <code>.col .xs-12 .sm-6 .md-4</code><br><br>
+        <div class="row small">
+            <div class="custom-grid col xs-12 sm-6 md-4"></div>
+            <div class="custom-grid col xs-12 sm-6 md-4"></div>
+            <div class="custom-grid col xs-12 sm-6 md-4"></div>
+        </div>
+    </section>
+
+    <section id='typography'>
+        <strong><h2 class="title">Typography</h2></strong>
+        <em>related files: </em><code>_base.sass</code>, <code>_typography.sass</code><br><br>
+        <div class="row">
+            <div class="mh col md-6">
+                <div class="block">
+                    <p>Type is all set with the <code>rems</code>, so font-sizes and spacial relationships can be
+                        responsively sized based on a single <code>&lt;html&gt;</code> font-size property. Out
+                        of the box, Ghost never changes the <code>&lt;html&gt;</code> font-size, but it's there
+                        in case you need it for your project. All measurements are still base 10 though so, an
+                        <code>&lt;h1&gt;</code> with <code>5.0rem</code>font-size just means <code>50px</code>.</p>
+                    <p><strong>The typography base</strong> is Segoe UI, set at 14rem (14px) over a 1.5 line height
+                        (21px). Other type basics like <a href="#">anchors</a>, <strong>strong</strong>,
+                        <em>emphasis</em>, and
+                        <u>underline</u> are all obviously included.</p>
+                    <p><strong>Headings</strong> create a family of distinct sizes each with specific <code>letter-spacing</code>,
+                        <code>line-height</code>, and <code>margins</code>.</p>
+                </div>
+            </div>
+            <div class="mh col md-6">
+                <div class="block">
+                    <h5>Ghost in the Land of Skeletons</h5>
+                    <p>If not for flesh’s pretty paint, we’re just a bunch of skeletons, working hard to deny the fact of bones. Teeth remind me that we die. That’s why I never smile, except when looking at a picture of a ghost, captured by a camera lens, in a book about the paranormal. When someone takes a picture of a spirit, it gives me hope. I admire the ones who refuse to go away. Lovers scorned and criminals burned. I love the dead little girl who plays in her yard, a spectral game of hide and seek. It’s the fact they don’t know they’re dead that appeals to me most. Like a man once said to me, Do you ever feel like you’re a ghost? Sure, I answered, every day. He laughed at that and disappeared. All I could think was he beat me to it.</p>
+                    <span class="sub">By Christopher Kennedy</span>
+                </div>
+            </div>
+            <!--<div class="col">
+                <div class="block">
+                    <h1>Heading<span> <code>&lt;h1&gt;</code> 50rem</span></h1>
+                    <h2>Heading<span> <code>&lt;h2&gt;</code> 42rem</span></h2>
+                    <h3>Heading<span> <code>&lt;h3&gt;</code> 36rem</span></h3>
+                    <h4>Heading<span> <code>&lt;h4&gt;</code> 30rem</span></h4>
+                    <h5>Heading<span> <code>&lt;h5&gt;</code> 24rem</span></h5>
+                    <h6>Heading<span> <code>&lt;h6&gt;</code> 15rem</span></h6>
+                </div>
+            </div>-->
+        </div>
+    </section>
+
+    <section id='icons'>
+        <strong><h2 class="title">Icons</h2></strong>
+        <em>related files: </em><code>_icons.sass</code><br><br>
+        <div class="row">
+            <div class="col md-12">
+                <div class="disable-scrollable">
+                    <iframe class="scrollable" src="http://ionicons.com" width="100%" height="500px"></iframe>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id='buttons'>
+        <strong><h2 class="title">Buttons</h2></strong>
+        <em>related files: </em><code>_buttons.sass</code>, <code>_icons.sass</code><br><br>
+        <div class="row">
+            <div class="mh col md-12">
+                <div class="block npb">
+                    <div>
+                        <a class="button" href="#">Anchor button</a>
+                        <button>Button element</button>
+                        <input type="submit" value="submit input">
+                        <input type="button" value="button input">
+                    </div>
+                    <div>
+                        <a class="button button-primary" href="#">Anchor button</a>
+                        <button class="button-primary">Button element</button>
+                        <input class="button-primary" type="submit" value="submit input">
+                        <input class="button-primary" type="button" value="button input">
+                    </div>
+                    <div>
+                        <button type="" class="button"><i class="in-button left ion-plus-round"></i>Add to cart</button>
+                        <button type="" class="button">Add to cart<i class="right in-button ion-plus-round"></i></button>
+                        <button type="" class="button"><i class="left in-button ion-ios-skipbackward"></i>Precedent</button>
+                        <button type="" class="button">Next<i class="right in-button ion-ios-skipforward"></i></button>
+                        <button type="" class="button square"><i class="in-button ion-ios-skipforward"></i></button>
+                    </div>
+                    <div>
+                        <button type="" class="button dashed"><i class="in-button left ion-plus-round"></i>Add to cart</button>
+                        <button type="" class="button dashed">Add to cart<i class="right in-button ion-plus-round"></i></button>
+                        <button type="" class="button dashed"><i class="left in-button ion-ios-skipbackward"></i>Precedent</button>
+                        <button type="" class="button dashed">Next<i class="right in-button ion-ios-skipforward"></i></button>
+                        <button type="" class="button dashed square"><i class="in-button ion-ios-skipforward"></i></button>
+                    </div>
+                    <div>
+                        <button type="" class="button ghost"><i class="in-button left ion-plus-round"></i>Add to cart</button>
+                        <button type="" class="button ghost">Add to cart<i class="right in-button ion-plus-round"></i></button>
+                        <button type="" class="button ghost"><i class="left in-button ion-ios-skipbackward"></i>Precedent</button>
+                        <button type="" class="button ghost">Next<i class="right in-button ion-ios-skipforward"></i></button>
+                        <button type="" class="button ghost square"><i class="in-button ion-ios-skipforward"></i></button>
+                    </div>
+                    <div>
+                        <button type="" class="button silent"><i class="in-button left ion-plus-round"></i>Add to cart</button>
+                        <button type="" class="button silent">Add to cart<i class="right in-button ion-plus-round"></i></button>
+                        <button type="" class="button silent"><i class="left in-button ion-ios-skipbackward"></i>Precedent</button>
+                        <button type="" class="button silent">Next<i class="right in-button ion-ios-skipforward"></i></button>
+                        <button type="" class="button silent square"><i class="in-button ion-ios-skipforward"></i></button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+{% endblock %}
+{% block javascripts %}
+    {{ parent() }}
+    <script>
+      var websocket = WS.connect("ws://127.0.0.1:8080");
+      
+      websocket.on("socket/connect", function (session) {
+          console.log("Successfully Connected!");
+
+          session.subscribe("ws/notification", function(uri, payload){
+              console.log("Received message", payload);
+              $.gritter.add({
+                       title: payload.title,
+                       text: payload.message,
+                       sticky: payload.sticky,
+                       time: payload.duration,
+                       fade_in_speed: 'fast',
+                       fade_out_speed: 500
+                   });
+          });
+
+          $('#testWS').change(function () {
+              var json = {
+                  title: 'Un titre de notification',
+                  message: $(this).val()
+              };
+              session.publish("ws/notification", JSON.stringify(json));
+          });
+
+      });
+
+      webSocket.on("socket/disconnect", function(error){
+          //error provides us with some insight into the disconnection: error.reason and error.code
+
+          console.log("Disconnected for " + error.reason + " with code " + error.code);
+      });
+    </script>
+{% endblock %}

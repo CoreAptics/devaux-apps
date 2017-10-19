@@ -1,0 +1,25 @@
+// Variables--------------------------------------------------------------------
+$tables-td-padding: 4px 15px
+
+// Tables ----------------------------------------------------------------------
+table
+    font-size: $font-size-small
+thead
+    font-size: $font-size-small - 0.1rem
+    th
+        font-weight: normal
+        &:hover,
+        &.active
+            background: $bg-color
+th,
+td
+    padding: $tables-td-padding
+    text-align: left
+    border-bottom: $border-style $border-color
+    vertical-align: middle
+th:first-child,
+td:first-child
+    padding-left: 0
+th:last-child,
+td:last-child
+    padding-right: 0

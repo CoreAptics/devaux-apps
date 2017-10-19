@@ -1,0 +1,47 @@
+{% extends 'base_admin.html.twig' %}
+
+{% block sidebarTitle %}ADMIN MENU{% endblock %}
+
+{% block routePage %}
+    <li><a href="{{ path('back_homepage') }}">Admin</a></li>
+    <li><a href="#">Parametres</a></li>
+{% endblock %}
+
+{% block contentPage %}
+
+    <section id='users'>
+        <strong><h2 class="title">Parametres</h2></strong>
+        <div class="row">
+            <div class="mh col md-12">
+                <div class="block npb">
+                    <div id="table">
+                        <table class="dataTable mb">
+                            <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>Nom</th>
+                                <th>Valeur</th>
+                                <th></th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            {% for parameter in parameterList %}
+                                <tr data-url="{{ path('back_parameter_edit', {'id': parameter.id}) }}">
+                                    <td>{{ parameter.id }}</td>
+                                    <td>{{ parameter.name }}</td>
+                                    <td>{{ parameter.value }}</td>
+                                    <td class="text-right">
+                                        <div class="group">
+                                            <a class="button" href="{{ path('back_parameter_edit', {'id': parameter.id}) }}"><i class="in-button left ion-android-create"></i>Editer</a>
+                                        </div>
+                                    </td>
+                                </tr>
+                            {% endfor %}
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+{% endblock %}
