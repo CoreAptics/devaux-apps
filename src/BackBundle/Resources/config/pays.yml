@@ -1,0 +1,15 @@
+back_pays_list:
+    path: /
+    defaults: { _controller: BackBundle:Pays:list }
+
+back_pays_add:
+    path: /ajouter
+    defaults: { _controller: BackBundle:Pays:add }
+
+back_pays_edit:
+    path: /editer/{id}
+    defaults: { _controller: BackBundle:Pays:edit }
+
+back_pays_delete:
+    path: /supprimer/{id}
+    defaults: { _controller: BackBundle:Pays:delete }

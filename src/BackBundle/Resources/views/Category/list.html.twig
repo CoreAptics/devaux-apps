@@ -1,0 +1,52 @@
+{% extends 'base_admin.html.twig' %}
+
+{% block sidebarTitle %}ADMIN MENU{% endblock %}
+
+{% block routePage %}
+    <li><a href="{{ path('back_homepage') }}">Admin</a></li>
+    <li><a href="#">Catégories</a></li>
+{% endblock %}
+
+{% block contentPage %}
+
+    <section id='users'>
+        <strong><h2 class="title">Catégories</h2></strong>
+        <div class="row">
+            <div class="mh col md-12">
+                <div class="block">
+                    <a class="button" href="{{ path('back_reference_category_add') }}"><i class="in-button left ion-android-add"></i>Ajouter une catégorie</a>
+                </div>
+            </div>
+            <div class="mh col md-12">
+                <div class="block npb">
+                    <div id="table">
+                        <table class="dataTable mb">
+                            <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>Nom</th>
+                                <th></th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            {% for entity in entities %}
+                                <tr>
+                                    <td>{{ entity.id }}</td>
+                                    <td>{{ entity.name }}</td>
+
+                                    <td class="text-right">
+                                        <div class="group">
+                                            <a class="button" href="{{ path('back_reference_category_edit', {'id': entity.id}) }}"><i class="in-button left ion-android-create"></i>Editer</a>
+                                            <a class="button danger" href="{{ path('back_reference_category_delete', {'id': entity.id}) }}"><i class="in-button ion-close-round"></i></a>
+                                        </div>
+                                    </td>
+                                </tr>
+                            {% endfor %}
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+{% endblock %}

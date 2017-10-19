@@ -1,0 +1,33 @@
+{% extends 'base_admin.html.twig' %}
+
+{% block sidebarTitle %}ADMIN MENU{% endblock %}
+{% block titlePage %}{% endblock %}
+
+{% block routePage %}
+    <li><a href="{{ path('back_homepage') }}">Admin</a></li>
+    <li><a href="{{ path('back_client_list') }}">Distributeurs</a></li>
+    <li><a href="#">Ajout</a></li>
+{% endblock %}
+
+{% block contentPage %}
+
+    <section id='admins'>
+        <strong><h2 class="title">Ajout d'un distributeur</h2></strong>
+        <div class="row">
+            <div class="mh col md-4">
+                <div class="block">
+                    <div class="row">
+                        {% if message is defined %}
+                            <div class="alert alert-info">Info : {{ message|raw }}</div>
+                        {% endif %}
+                        {{ form_start(form) }}
+                        <div class="col-lg-6 offset-1">
+                            {{ form_rest(form) }}
+                            {{ form_end(form) }}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+{% endblock %}

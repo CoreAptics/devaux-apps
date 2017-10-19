@@ -1,0 +1,15 @@
+back_ville_list:
+    path: /
+    defaults: { _controller: BackBundle:Ville:list }
+
+back_ville_add:
+    path: /ajouter
+    defaults: { _controller: BackBundle:Ville:add }
+
+back_ville_edit:
+    path: /editer/{id}
+    defaults: { _controller: BackBundle:Ville:edit }
+
+back_ville_delete:
+    path: /supprimer/{id}
+    defaults: { _controller: BackBundle:Ville:delete }

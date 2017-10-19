@@ -1,0 +1,15 @@
+back_departement_list:
+    path: /
+    defaults: { _controller: BackBundle:Departement:list }
+
+back_departement_add:
+    path: /ajouter
+    defaults: { _controller: BackBundle:Departement:add }
+
+back_departement_edit:
+    path: /editer/{id}
+    defaults: { _controller: BackBundle:Departement:edit }
+
+back_departement_delete:
+    path: /supprimer/{id}
+    defaults: { _controller: BackBundle:Departement:delete }

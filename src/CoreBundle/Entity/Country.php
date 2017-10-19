@@ -13,12 +13,12 @@ use Doctrine\ORM\Mapping as ORM;
 class Country
 {
     /**
-     * @ORM\OneToMany(targetEntity="CoreBundle\Entity\Ville", mappedBy="country")
+     * @ORM\OneToMany(targetEntity="CoreBundle\Entity\Ville", mappedBy="country", cascade={"remove"})
      */
     private $villes;
 
     /**
-     * @ORM\OneToMany(targetEntity="CoreBundle\Entity\Departement", mappedBy="country")
+     * @ORM\OneToMany(targetEntity="CoreBundle\Entity\Departement", mappedBy="country", cascade={"remove"})
      */
     private $departements;
 

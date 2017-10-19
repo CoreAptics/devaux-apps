@@ -35,3 +35,19 @@ back_parameter:
 back_client:
     prefix: /clients
     resource: client.yml
+
+back_pays:
+    prefix: /pays
+    resource: pays.yml
+
+back_departement:
+    prefix: /departements
+    resource: departement.yml
+
+back_ville:
+    prefix: /villes
+    resource: ville.yml
+
+back_reference:
+    prefix: /distributeurs
+    resource: reference.yml

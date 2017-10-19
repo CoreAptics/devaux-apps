@@ -1,0 +1,31 @@
+back_reference_list:
+    path: /
+    defaults: { _controller: BackBundle:Distributeurs:list }
+
+back_reference_add:
+    path: /ajouter
+    defaults: { _controller: BackBundle:Distributeurs:add }
+
+back_reference_edit:
+    path: /editer/{id}
+    defaults: { _controller: BackBundle:Distributeurs:edit }
+
+back_reference_delete:
+    path: /supprimer/{id}
+    defaults: { _controller: BackBundle:Distributeurs:delete }
+
+back_reference_category_list:
+    path: /categories
+    defaults: { _controller: BackBundle:Distributeurs:categoryList }
+
+back_reference_category_add:
+    path: /categories/ajouter
+    defaults: { _controller: BackBundle:Distributeurs:categoryAdd }
+
+back_reference_category_edit:
+    path: /categories/editer/{id}
+    defaults: { _controller: BackBundle:Distributeurs:categoryEdit }
+
+back_reference_category_delete:
+    path: /categories/supprimer/{id}
+    defaults: { _controller: BackBundle:Distributeurs:categoryDelete }

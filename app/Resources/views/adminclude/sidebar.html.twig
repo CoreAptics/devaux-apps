@@ -15,6 +15,17 @@
                     <li><a href="{{ path('back_group_list') }}">Groupes</a></li>
                 </ul>
             </li>
+            <li class="accordion-item">
+                <a href="#" class="accordion-head"><i class="inner left ion-person-stalker"></i>Gestion distributeurs<i class="ion-chevron-right pull-right accordion-arrow"></i></a>
+                <ul class="accordion-body">
+                    <li><a href="{{ path('back_pays_list') }}">Pays</a></li>
+                    <li><a href="{{ path('back_departement_list') }}">Départements</a></li>
+                    <li><a href="{{ path('back_reference_category_list') }}">Catégories distributeurs</a></li>
+                    <li><a href="{{ path('back_reference_list') }}">Distributeurs</a></li>
+
+                    {#<li><a href="{{ path('back_group_list') }}">Villes</a></li>#}
+                </ul>
+            </li>
             <li><a href="{{ path('back_client_list') }}"><i class="inner left ion-android-contact"></i>Clients</a></li>
             <li><span>Autre</span></li>
             <li><a href="{{ path('back_admin_logout') }}"><i class="inner left ion-android-exit"></i>Déconnexion</a></li>
